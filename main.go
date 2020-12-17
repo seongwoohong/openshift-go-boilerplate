@@ -14,7 +14,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Fprintln(w, response)
-  ip := GetIP(r)
+	ip := GetIP(r)
 	fmt.Println("Servicing request at " + time.Now().String() + " towards " + ip + " " + r.RemoteAddr)
 }
 
