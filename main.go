@@ -16,7 +16,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, response)
 	ip := GetIP(r)
 	fmt.Println("Servicing request at " + time.Now().String() + " towards " + ip + " " + r.RemoteAddr + " via " + r.Method)
-	for key,val := range r.Header {
+	for _, val := range r.Header {
 		// fmt.Println(key)
 		// fmt.Printf(": ")
 		fmt.Println(val)
