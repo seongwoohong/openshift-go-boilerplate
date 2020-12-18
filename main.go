@@ -15,7 +15,11 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintln(w, response)
 	ip := GetIP(r)
-	fmt.Println("Servicing request at " + time.Now().String() + " towards " + ip + " " + r.RemoteAddr + " via " + r.Method + " " + r.Header + " TLS Flag : " + r.TLS)
+	fmt.Println("Servicing request at " + time.Now().String() + " towards " + ip + " " + r.RemoteAddr + " via " + r.Method + " TLS Flag : " + r.TLS)
+	for key,val := range req.Header {
+		fmt.Printf(key + ": " + val)
+	}
+	fmt.Println("")
 }
 
 func listenAndServe(port string) {
